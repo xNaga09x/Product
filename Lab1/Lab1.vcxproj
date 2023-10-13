@@ -127,12 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IPriceable.h" />
+    <ClInclude Include="NonPerishableProduct.h" />
+    <ClInclude Include="PerishableProduct.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductType.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NonPerishableProduct.cpp" />
+    <ClCompile Include="PerishableProduct.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="product.prodb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

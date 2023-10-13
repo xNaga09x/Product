@@ -1,10 +1,12 @@
 #include "Product.h"
 #include <vector>
 #include <fstream>
+#include "IPriceable.h"
+#include "PerishableProduct.h"
 
 int main()
 {
-	std::vector<Product> products;
+	std::vector<IPriceable*> products; //retine referinta unui obiect de tip Perisabil/Neperisabil
 	uint32_t id;
 	std::string name;
 	float price;
@@ -16,7 +18,7 @@ int main()
 	{
 		file >> id >> name >> price >> VAT >> TypeOrDate;
 		//Product product = Product(id, name, price, VAT, TypeOrDate); sunt identice
-		Product product(id, name, price, VAT, TypeOrDate);
+		IPriceable* product = new PerishableProduct(TypeOrDate, id, name, price);
 		products.push_back(product);
 	}
 }

@@ -1,18 +1,18 @@
 #pragma once
 #include <iostream>
 #include "ProductType.h"
+#include "IPriceable.h"
 
-class Product
+class Product: public IPriceable
 {
 public:
-	Product(uint32_t id, const std::string& name, float price, uint16_t VAT, ProductType type);
-	Product(uint32_t id, const std::string& name, float price, uint16_t VAT, const std::string& date);
+	Product(uint32_t id, const std::string& name, float price);
+	std::string GetName() const override;
+	float GetVATPrice() const override;
+	virtual uint16_t GetVAT() const=0; //pt a face rost de TVA pt claculul TVA-Pret
 private:
 	uint32_t m_id;  //aloca 32 biti. "u"=unsigned
 	std::string m_name;
 	float m_price;
-	uint16_t m_VAT; //aloca 16 biti pt unisgned int
-	ProductType m_type;
-	std::string m_date;
 };
 
